@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>NO JSon file test</title>
+  <link href="http://fonts.googleapis.com/css?family=Orbitron:400" rel="stylesheet" type="text/css" />
+  <!-- Custom CSS -->
+  <style type="text/css">
+  #systemDetails,
+  #hud {
+    width:450px;
+  }
+
+  h1 {
+    position: fixed;
+    top: 2%;
+    left: 0;
+    width: 100%;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #ccc;
+    font-family: "Orbitron";
+  }
+
+  h1 a {
+    color: inherit;
+  }
+
+  #edmap {
+    position: fixed;
+    top: 15%;
+    right: 0;
+    width: 100%;
+    height: 70%;
+  }
+  </style>
+</head>
+<body>
+  <h1>Elite Dangerous: Shard Systems</h1>
+
+  <div id="edmap"></div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+
+  <!-- JSon inside a container -->
+  <script type="text/javascript">
+  systems = [
+    {
+      "name": "Oochost BH-J d10-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Outotz LZ-O c19-4",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Byua Chraei YP-E d12-16",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Qaugneau FR-M d7-23",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Truechiae TG-J d10-2",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Outotz HD-J d9-3",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Outotz KY-I d9-6",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Outotz CI-R c18-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Col 69 Sector PH-U c3-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Oochorrs MU-M d8-14",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Col 69 Sector BA-Z c0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Outotz PI-K d8-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Outotz LS-K d8-3",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Col 69 Sector GQ-Y d4",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Outotz IT-Z c13-2",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "HD 69978",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Phroea Phio YS-F d12-37",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Trifid of the North Sector DL-Y e0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Oochoxt CD-E c1-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "NGC 2244 Sector CQ-O d6-29",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Pheia Ain IK-A d38",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Col 107 Sector XF-N d7-65",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Gludgae GQ-V c16-6",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Pyria Thua PW-N d6-2",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Blau Broae BC-D d12-59",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Slaiya GU-E c25-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Dryu Airg DS-J d9-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Schafaae VN-S d4-2",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Smootie CU-I c9-1",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Groerld QO-Z d13-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Schee Phio NU-R c7-16",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Flyue Flyiae UI-K c11-45",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Flyue Flyiae TI-K c11-62",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Flyue Flyiae TI-K c11-47",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Flyue Flyiae SN-K c11-40",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "HIP 36601",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Freetua ZL-J d10-49",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Flyue Flyiae SX-L c10-1",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Phrae Groa FG-W c18-20",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Phrae Groa PO-X d2-85",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Gludgaa EM-C d13-1",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Gludgaa VT-Z d13-17",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Eafoff CC-D d12-23",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Phreia Dryiae CN-Q d6-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Aidow AL-P d5-1",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Aidoms LC-D d12-5",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Vothoea QF-D d13-19",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Vothoi QT-Y d1-28",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Phroi Phoe RU-E c25-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Phroi Phoe SF-D c26-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [1]
+    },
+    {
+      "name": "Velnambang",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Vargerson",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Rashair",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Adachit",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Arikara",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Arugua",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Chick Bahpu",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Tehuenef",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Yao Tzu",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "White Sun",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [4]
+    },
+    {
+      "name": "Plae Eur IC-D d12-0",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [3],
+      "info": "[CRU] Serenity Valley"
+    },
+    {
+      "name": "Prooe Hypue NZ-M d8-56",
+      "coords": {"x": 0, "y": 0, "z": 0},
+      "cat": [3],
+      "info": "CMDR Unifex"
+    }
+  ];
+  categories = {
+    "Theme": {
+      "1": {
+        "name": "Shard Site",
+        "color": "00FFFF"
+      },
+      "2": {
+        "name": "Player",
+        "color": "DFFE00"
+      },
+      "3": {
+        "name": "Landmark",
+        "color": "FF0000"
+      },
+      "4": {
+        "name": "Browncoats",
+        "color": "FFFF00"
+      }
+    }
+  };
+  json_data = {
+    "systems": systems,
+    "categories": categories
+  };
+  </script>
+
+  <!-- Launch ED3Dmap -->
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <script src="js/ed3dmap.js?v=4"></script>
+  <script type="text/javascript">
+    // For each json data, fetch the coordinates from the EDSM API
+    $(json_data.systems).each(function(index, system) {
+      var system_name = system.name;
+      var system_coords = system.coords;
+
+      // If the system has no coordinates, fetch them from EDSM
+      if (system_coords.x == 0 && system_coords.y == 0 && system_coords.z == 0) {
+        var url = 'https://www.edsm.net/api-v1/system?systemName=' + system_name + '&showCoordinates=1&showId=1&showInformation=1&showPermit=1&showPrimaryStar=1';
+        $.getJSON(url, function(data) {
+          var system_name = data.name;
+          var system_coords = data.coords;
+          for (var i = 0; i < json_data.systems.length; i++) {
+            if (json_data.systems[i].name == system_name) {
+              json_data.systems[i].coords = system_coords;
+            }
+          }
+          // If this is the last item, launch the map
+          if (index == json_data.systems.length - 1) {
+            Ed3d.init({
+                container         : 'edmap',
+                json              : json_data,
+                withHudPanel      : false,
+                effectScaleSystem : [128,1500],
+                systemColor       : '#00FF00',
+                showNameNear      : true,
+                showNameFar       : true,
+            });
+          }
+        }).error(function() {
+          console.log('Error fetching coordinates for ' + system_name);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
